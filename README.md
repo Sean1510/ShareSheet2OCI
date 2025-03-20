@@ -31,7 +31,7 @@ Here's a step-by-step guide to create an iOS Shortcut that uploads content from 
 
 
 
-# Step 2: Build the iOS Shortcut
+# Step 2: Build the iOS Shortcuts
 Create a New Shortcut:
 
 Open the Shortcuts app, tap +, and name it (e.g., "Upload to OCI").
