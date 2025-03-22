@@ -14,13 +14,13 @@ Here's a step-by-step guide to create an iOS Shortcut that uploads content from 
     
     **Name**: Give your project a memorable identity. In the screenshot below, I used "PAR-Uploader-iOS," but feel free to use the default name provided by OCI if you prefer.
 
-    **Pre-Authenticated Request Target**: Here, I keep the default 'Bucket'.
+    **Pre-Authenticated Request Target**: As depicted in the screenshot, I kept the default target as 'Bucket'.
     
-    **Access Type**: Default radio-button 'Permit object reads' is checked. Here I changed to 'Permit object reads and writes'.
+    **Access Type**: While the default radio button selects "Permit object reads," I opted to switch it to "Permit object reads and writes" to allow more flexibility.
     
-    **Enable Object Listing**: Default the check box is unchecked. I ticked it.
+    **Enable Object Listing**: In the screenshot, you can see I enabled this option to show all objects.
     
-    **xpiration**: Based on your own needs. Here, I set to Dec 31, 9999.
+    **Expiration**: Set this according to your needs; in my example, I've chosen December 31, 9999 for long-term access.
     
     Click Create and Copy the PAR URL.
    
