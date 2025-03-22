@@ -12,7 +12,9 @@ Here's a step-by-step guide to create an iOS Shortcut that uploads content from 
 
     Click Create Pre-Authenticated Request.
     
-    Name: Give it a name (e.g., "PAR-Uploader-iOS").
+    Name: Give it a name (in screenshot below I use "PAR-Uploader-iOS" or you can just keep the name given by OCI).
+
+    Pre-Authenticated Request Target: 
     
     Access Type: Select Permit object writes (PUT).
     
