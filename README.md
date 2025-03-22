@@ -12,19 +12,17 @@ Here's a step-by-step guide to create an iOS Shortcut that uploads content from 
 
     Click Create Pre-Authenticated Request.
     
-    Name: Give your project a memorable identity. In the screenshot below, I used "PAR-Uploader-iOS," but feel free to use the default name provided by OCI if you prefer.
+    **Name**: Give your project a memorable identity. In the screenshot below, I used "PAR-Uploader-iOS," but feel free to use the default name provided by OCI if you prefer.
 
-    Pre-Authenticated Request Target: 
+    **Pre-Authenticated Request Target**: Here, I keep the default 'Bucket'.
     
-    Access Type: Select Permit object writes (PUT).
+    **Access Type**: Default radio-button 'Permit object reads' is checked. Here I changed to 'Permit object reads and writes'.
     
-    Object Name: Leave empty and check Allow any object with the prefix.
+    **Enable Object Listing**: Default the check box is unchecked. I ticked it.
     
-    Prefix: Enter uploads/ (or a custom path).
+    **xpiration**: Based on your own needs. Here, I set to Dec 31, 9999.
     
-    Set an expiration time (e.g., 1 year).
-    
-    Click Create and Copy the PAR URL (e.g., https://namespace.compat.objectstorage.region.oraclecloud.com/n/namespace/b/bucket/o/uploads/).
+    Click Create and Copy the PAR URL.
    
     ![image](https://github.com/user-attachments/assets/c2ae7462-58fd-4422-8c7c-9fa06709d520)
 
