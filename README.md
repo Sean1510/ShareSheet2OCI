@@ -32,65 +32,27 @@ Here's a step-by-step guide to create an iOS Shortcut that uploads content from 
 
 
 # Step 2: Build the iOS Shortcut
-Create a New Shortcut:
+1. Create a New Shortcut:
 
-Open the Shortcuts app, tap +, and name it (e.g., "Upload to OCI").
+    Open the Shortcuts app, tap +, and name it (e.g., "ShareSheet2OCI").
 
-Configure Share Sheet Access:
+2. Configure Share Sheet Access:
 
-Tap the settings (ⓘ) and enable Show in Share Sheet.
+    Tap the settings (ⓘ) and enable Show in Share Sheet.
 
-Choose supported content types (e.g., files, images).
+    Choose supported content types (e.g., files, images).
 
-Add Shortcut Actions:
+3. Add Shortcut Actions:
 
-Get File Details (to extract the filename):
+    1). Receive [Types of Content] from Share Sheet  
+    2). **Repeat with Each**: Repeat with Each Item in [Shortcut Input]  
+       └─ 3). **Get Details of Files**: Get [Detail -> Name] of [Repeat Item]
+       └─ 4). **URL Encode**: URL Encode [Name]  
+       └─ 5). **Text**: Text: [Your PAR_URL in Step 1][Select Variable -> URL Encoded Text] (there should be no space between the 2 parts)
+       └─ 6). **Get Contents of URL**: Get Contents of [Text] -> Method -> PUT  
+       └─ 7). **Show Notification**: (Optional)   
+    
 
-Copy
-Get Details of [Input] → Name
-URL-Encode the Filename:
+    
+    ![image](https://github.com/user-attachments/assets/50768da0-ea0e-4f7f-a174-1715e517730c)
 
-Copy
-URL Encode [Name]
-Build the Full PAR URL:
-
-Copy
-Text: [PAR_BASE_URL][Encoded Filename]
-Example: https://.../uploads/MyFile.jpg
-Convert Input to File Content:
-
-Copy
-Get Contents of [Input]
-Upload via PUT Request:
-
-Copy
-Contents of File → Headers:
-  Content-Type: [Leave blank for auto-detection]
-Method: PUT
-URL: [Constructed PAR URL]
-Full Shortcut Code
-plaintext
-Copy
-1. Receive [Input] from Share Sheet
-2. Get Details of [Input] → Name
-3. URL Encode [Name]
-4. Text: [PAR_BASE_URL][Encoded Filename]
-5. Get Contents of [Input]
-6. URL: [Constructed URL from Step 4]
-7. Headers:
-   - Content-Type: (Optional, auto-detected if blank)
-8. Method: PUT
-9. Show Result (Optional)
-Testing
-Share a file (e.g., photo) and select the Shortcut.
-
-Verify the file appears in your OCI bucket under uploads/[filename].
-
-Troubleshooting
-403 Error: Check PAR expiration or permissions.
-
-404 Error: Ensure the PAR URL includes the correct prefix.
-
-Encoding Issues: Use URL Encode to handle special characters.
-
-This method avoids complex API signing by leveraging OCI’s pre-signed URLs.
