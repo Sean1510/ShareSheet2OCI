@@ -55,16 +55,16 @@ This shortcut leverages iOS Shortcuts’ Share Sheet integration for one-tap upl
 
    ```markdown
    1. Receive [Input] from Share Sheet
-   2. Repeat with Each Item in [Shortcut Input]
-      └─ 3. Get Name of [Repeat Item]
-      └─ 4. URL Encode the filename
-      └─ 5. Text: Combine PAR URL + Encoded Filename  
+   2. Search Action [Repeat with Each] -> Repeat with Each Item in [Shortcut Input]
+      └─ 3. Search Action [Get Details of Files] -> Get Name of [Repeat Item]
+      └─ 4. Search Action [URL Encode] -> URL Encode the filename
+      └─ 5. Search Action [Text] -> Text: Combine PAR URL + Encoded Filename  
          (Example: `https://<PAR_URL>/` + `EncodedText` → **NO SPACE**)
-      └─ 6. Upload File via PUT Request  
+      └─ 6. Search Action [Get Contents of URL] -> Upload File via PUT Request  
          - Method: **PUT**  
          - Headers: None  
          - Request Body: **File** (select "Repeat Item")
-      └─ 7. (Optional) Show Notification on Success
+      └─ 7. (Optional) Search Action [Show Notification] -> Show Notification on Success
    ```
    ![image](https://github.com/user-attachments/assets/18e07ebb-3ff4-4c92-852a-b83292427fdf)
 
