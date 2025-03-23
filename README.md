@@ -1,7 +1,7 @@
 # 📤 ShareSheet2OCI: Upload Files to OCI Object Storage via iOS Share Sheet
 
 **Seamlessly upload files/videos/images from your iOS device to Oracle Cloud Infrastructure (OCI) Object Storage using a Pre-Authenticated Request (PAR).**  
-This shortcut leverages iOS Shortcuts’ Share Sheet integration for one-tap uploads—perfect for photos, documents, and more!
+This shortcut leverages iOS Shortcuts’ Share Sheet integration for one-tap uploads—perfect for photos, videos, documents, and more!
 
 ---
 
