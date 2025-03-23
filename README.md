@@ -6,7 +6,7 @@ This shortcut leverages iOS Shortcuts’ Share Sheet integration for one-tap upl
 ---
 
 ## 🚀 Features
-- **Direct Share Sheet Integration**: Upload files/images directly from any iOS app.
+- **Direct Share Sheet Integration**: Upload files/images directly from **→any iOS app←** 📱.
 - **No Coding Required**: Uses OCI’s Pre-Authenticated Requests for secure uploads.
 - **Bulk Upload Support**: Handles multiple files at once.
 - **Custom Notifications**: Get confirmation when uploads succeed.
