@@ -23,7 +23,8 @@ Here's a step-by-step guide to create an iOS Shortcut that uploads content from 
     **Expiration**: Set this according to your needs; in my example, I've chosen December 31, 9999 for long-term access.
     
     Click Create and Copy the PAR URL.
-   
+
+    Please see below screenshot as an example:
     ![image](https://github.com/user-attachments/assets/c2ae7462-58fd-4422-8c7c-9fa06709d520)
 
 
