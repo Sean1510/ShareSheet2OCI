@@ -49,10 +49,11 @@ Here's a step-by-step guide to create an iOS Shortcut that uploads content from 
        └─ 3). **Get Details of Files**: Get [Detail -> Name] of [Repeat Item]
        └─ 4). **URL Encode**: URL Encode [Name]  
        └─ 5). **Text**: Text: [Your PAR_URL in Step 1][Select Variable -> URL Encoded Text] (there should be no space between the 2 parts)
-       └─ 6). **Get Contents of URL**: Get Contents of [Text] -> Method -> PUT  
-       └─ 7). **Show Notification**: (Optional)   
-    
+       └─ 6). **Get Contents of URL**: Get Contents of [Text]: Method -> PUT; Request of URL -> File; File -> [Repeat Item] 
+       └─ 7). **Show Notification**: (Optional) Text -> [Contents of URL]
 
-    
+    Please see below screenshot as an example:
     ![image](https://github.com/user-attachments/assets/50768da0-ea0e-4f7f-a174-1715e517730c)
+
+    Feel free to copy directly from iCloud: https://www.icloud.com/shortcuts/c70bb1b234064b04bfa2969eb60a82d4
 
