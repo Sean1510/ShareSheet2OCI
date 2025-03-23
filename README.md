@@ -48,7 +48,7 @@ This shortcut leverages iOS Shortcuts’ Share Sheet integration for one-tap upl
 
 2. **Enable Share Sheet Access**  
    - Tap the **⚙️ Settings (ⓘ)** → Enable **Show in Share Sheet**.
-   - Choose supported file types (e.g., files, images).
+   - Choose supported file types (All file types enabled by default ✅).
 
 3. **Add Actions**  
    Follow the workflow below or [**Download the Shortcut**](https://www.icloud.com/shortcuts/c70bb1b234064b04bfa2969eb60a82d4) directly.
