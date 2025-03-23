@@ -1,60 +1,67 @@
-# ShareSheet2OCI
-Here's a step-by-step guide to create an iOS Shortcut that uploads content from the Share Sheet to Oracle Cloud Infrastructure (OCI) Object Storage using a Pre-Authenticated Request (PAR):
+# 📤 ShareSheet2OCI: Upload Files to OCI Object Storage via iOS Share Sheet
 
-# Step 1: Create a Pre-Authenticated Request (PAR) in OCI
-1. Navigate to your OCI Bucket:
+**Seamlessly upload files/images from your iOS device to Oracle Cloud Infrastructure (OCI) Object Storage using a Pre-Authenticated Request (PAR).**  
+This shortcut leverages iOS Shortcuts’ Share Sheet integration for one-tap uploads—perfect for photos, documents, and more!
 
-    Open the OCI Console.
-    
-    Go to Storage > Buckets and select your target bucket.
+---
 
-2. Generate a PAR:
+## 🚀 Features
+- **Direct Share Sheet Integration**: Upload files/images directly from any iOS app.
+- **No Coding Required**: Uses OCI’s Pre-Authenticated Requests for secure uploads.
+- **Bulk Upload Support**: Handles multiple files at once.
+- **Custom Notifications**: Get confirmation when uploads succeed.
 
-    Click Create Pre-Authenticated Request.
-    
-    **Name**: Give your project a memorable identity. In the screenshot below, I used "PAR-Uploader-iOS," but feel free to use the default name provided by OCI if you prefer.
+---
 
-    **Pre-Authenticated Request Target**: As depicted in the screenshot, I kept the default target as 'Bucket'.
-    
-    **Access Type**: While the default radio button selects "Permit object reads," I opted to switch it to "Permit object reads and writes" to allow more flexibility.
-    
-    **Enable Object Listing**: In the screenshot, you can see I enabled this option to show all objects.
-    
-    **Expiration**: Set this according to your needs; in my example, I've chosen December 31, 9999 for long-term access.
-    
-    Click Create and Copy the PAR URL.
+## 📋 Prerequisites
+1. An **OCI Bucket** configured in your Oracle Cloud account.
+2. **iOS Shortcuts App** installed on your device (iOS 13+).
 
-    Please see below screenshot as an example:
-    ![image](https://github.com/user-attachments/assets/c2ae7462-58fd-4422-8c7c-9fa06709d520)
+---
 
+## 🛠️ Setup Guide
 
+### Step 1: Create a Pre-Authenticated Request (PAR) in OCI
+1. **Navigate to your OCI Bucket**  
+   - Open the [OCI Console](https://cloud.oracle.com/).
+   - Go to **Storage > Buckets** and select your target bucket.
 
+2. **Generate a PAR**  
+   - Click **Create Pre-Authenticated Request**.
+   - Configure settings as follows:  
+     | Field                 | Value                                  |
+     |-----------------------|----------------------------------------|
+     | Name                  | `PAR-Uploader-iOS` (or a custom name)  |
+     | Target                | `Bucket` (default)                    |
+     | Access Type           | **Permit object reads and writes**    |
+     | Enable Object Listing | ✔️ Enabled                            |
+     | Expiration            | Set a long-term date (e.g., 12/31/9999) |
+   - **Copy the generated PAR URL** (you’ll need this for the shortcut).
 
+   ![PAR Configuration Example](https://github.com/user-attachments/assets/c2ae7462-58fd-4422-8c7c-9fa06709d520)
 
+---
 
-# Step 2: Build the iOS Shortcut
-1. Create a New Shortcut:
+### Step 2: Build the iOS Shortcut
+1. **Create a New Shortcut**  
+   - Open the **Shortcuts App** → Tap **+** → Name it (e.g., `ShareSheet2OCI`).
 
-    Open the Shortcuts app, tap +, and name it (e.g., "ShareSheet2OCI").
+2. **Enable Share Sheet Access**  
+   - Tap the **⚙️ Settings (ⓘ)** → Enable **Show in Share Sheet**.
+   - Choose supported file types (e.g., files, images).
 
-2. Configure Share Sheet Access:
+3. **Add Actions**  
+   Follow the workflow below or [**Download the Shortcut**](https://www.icloud.com/shortcuts/c70bb1b234064b04bfa2969eb60a82d4) directly.
 
-    Tap the settings (ⓘ) and enable Show in Share Sheet.
-
-    Choose supported content types (e.g., files, images).
-
-3. Add Shortcut Actions:
-
-    1). Receive [Types of Content] from Share Sheet  
-    2). **Repeat with Each**: Repeat with Each Item in [Shortcut Input]  
-       └─ 3). **Get Details of Files**: Get [Detail -> Name] of [Repeat Item]
-       └─ 4). **URL Encode**: URL Encode [Name]  
-       └─ 5). **Text**: Text: [Your PAR_URL in Step 1][Select Variable -> URL Encoded Text] (there should be no space between the 2 parts)
-       └─ 6). **Get Contents of URL**: Get Contents of [Text]: Method -> PUT; Request of URL -> File; File -> [Repeat Item] 
-       └─ 7). **Show Notification**: (Optional) Text -> [Contents of URL]
-
-    Please see below screenshot as an example:
-    ![image](https://github.com/user-attachments/assets/50768da0-ea0e-4f7f-a174-1715e517730c)
-
-    Feel free to copy directly from iCloud: https://www.icloud.com/shortcuts/c70bb1b234064b04bfa2969eb60a82d4
-
+   ```markdown
+   1. Receive [Input] from Share Sheet
+   2. Repeat with Each Item in [Shortcut Input]
+      └─ 3. Get Name of [Repeat Item]
+      └─ 4. URL Encode the filename
+      └─ 5. Text: Combine PAR URL + Encoded Filename  
+         (Example: `https://<PAR_URL>/` + `EncodedText` → **NO SPACE**)
+      └─ 6. Upload File via PUT Request  
+         - Method: **PUT**  
+         - Headers: None  
+         - Request Body: **File** (select "Repeat Item")
+      └─ 7. (Optional) Show Notification on Success
