@@ -66,6 +66,7 @@ This shortcut leverages iOS Shortcuts’ Share Sheet integration for one-tap upl
          - Request Body: **File** (select "Repeat Item")
       └─ 7. (Optional) Search Action [Show Notification] -> Show Notification on Success
    ```
-   ![image](https://github.com/user-attachments/assets/18e07ebb-3ff4-4c92-852a-b83292427fdf)
+   ![Picsew_20250324232140](https://github.com/user-attachments/assets/e699ecb7-38d4-4a89-bc99-ec54200544b9)
+
 
 
